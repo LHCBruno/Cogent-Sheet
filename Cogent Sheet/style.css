@@ -1,0 +1,104 @@
+*{
+    background-color: silver;
+    font-family: 'Nunito', sans-serif;
+    background: rgba(0, 0, 0, 0);
+}
+
+body{
+    background-image: url(./images/6-rough-seamless-recycled-vintage-paper-texture-2.jpg);
+}
+
+.header{
+    text-align: center;
+    background-color: red;
+    color: white;
+    font-size: xx-large;
+    border-radius: 25px;
+    margin-bottom: 0%;
+}
+
+.textarea1, .input1, select{
+    background-color: white;
+    vertical-align: middle;
+    width:100%;
+    -ms-box-sizing:content-box;
+    -moz-box-sizing:content-box;
+    box-sizing:content-box;
+    -webkit-box-sizing:content-box; 
+}
+
+.label1{
+    font-size: x-large;
+    font-weight: bolder;
+    vertical-align: middle;
+}
+
+.attribute{
+    margin: 0%;
+    font-size: x-large;
+}
+
+.attributetxt{
+    font-size: larger;
+    text-align: center;
+    border: 1px solid;
+    margin: 0%;
+    width: 100%;
+}
+
+td{
+    border: 1px solid;
+    text-align: center;
+    margin-bottom: 0%;
+}
+
+.inju{
+    border: 0%;
+}
+
+table{
+    width: 100%;
+    border: 1px solid;
+    empty-cells: show;
+}
+
+.injuriestxt{
+    text-align: center;
+    border: 1px solid;
+    margin-top: 0%;
+}
+
+.imageupload{
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 10px;
+    background: linear-gradient(to right, #40a7fc, #056cc0);
+    color: white;
+    width: 15%;
+    height: 5%;
+    text-align: center;
+    transition: all 500ms ease;
+}
+
+.imageupload:hover{
+    transform: translateY(-4px);
+}
+
+.download{
+    padding: 12px 24px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(to right, #40a7fc, #056cc0);
+    border: none;
+    border-radius: 25px;
+    margin: 8px 24px;
+    box-shadow: 0 6px 20px -8px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 500ms ease;
+}
+
+.download:hover{
+    transform: translateY(-4px);
+}

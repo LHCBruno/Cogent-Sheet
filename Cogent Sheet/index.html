@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="./functions.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    
+    <title>Cogent Sheet</title>
+
+</head>
+<body>
+    
+    <div>
+        <p style="padding-left:1%; margin:0%"><strong>Cogent Roleplay</strong>  V: 1.3.0 </p>
+    </div>
+    
+    <div style="width:100%;">
+        <p class="header" style="margin-top:0%;">Character Information</p>
+    </div>
+
+    <div style="width:100%; display: flex; margin:1%;">
+        <div style="width:49%;">
+            <form>
+                <label for="name" class="label1">Name:</label>
+                <input type="text" name="name" class="input1"><br/>
+                <label for="player" class="label1">Player Name:</label>
+                <input type="text" name="player" class="input1">
+                <label for="age" class="label1">Age:</label>
+                <input type="number" class="input1">
+                <label for="race" class="label1">Race:</label>
+                <select name="race" id="race" style="cursor: pointer;">
+                    <option value="">Select your race</option>
+                    <option value="human">Human</option>
+                    <option value="dwarf">Dwarf</option>
+                    <option value="elf">Elf</option>
+                    <option value="orc">Orc</option>
+                    <option value="gnome">Gnome</option>
+                    <option value="halfling">Halfling</option>
+                </select>
+                <label for="body" class="label1">Body Type:</label>
+                <textarea name="body" id="body" cols="30" rows="5" class="textarea1"></textarea>
+                <label for="disabling" class="label1">Disabling Characteristics:</label>
+                <textarea name="body" id="body" cols="30" rows="5" class="textarea1"></textarea>
+            </form>
+        </div>
+
+        <div style="width:49%;" class="img">
+            <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;" class="imageinput">
+            <label for="file" class="imageupload">Upload Image</label>
+            <img id="output" width="80%"/>
+        </div>
+
+    </div>
+
+    <div style="width:100%;">
+        <p class="header">Attributes</p>
+    </div>
+
+    <div style="display:flex;">
+        <div style="width:32%; margin-left:1%; margin: 1%;" class="str">
+         <p class="attribute"><strong>STR</strong>(Strenght)</p>
+            <table>
+                <tr>
+                 <td style="background-color:slategrey">-1</td>
+                    <td>0</td>
+                    <td>+1</td>
+                    <td>+2</td>
+                    <td>+3</td>
+                    <td>+4</td>
+                </tr>
+            </table>
+            <p class="attributetxt">For each additional point in <strong>STR: severity in injury</strong> can be <strong>reduced</strong> once every combat encounter.</p>
+        </div>
+
+        <div style="width:32%; margin-left:1%; margin: 1%;" class="ref">
+            <p class="attribute"><strong>REF</strong>(Reflex)</p>
+               <table>
+                   <tr>
+                    <td style="background-color:slategrey">-1</td>
+                       <td>0</td>
+                       <td>+1</td>
+                       <td>+2</td>
+                       <td>+3</td>
+                       <td>+4</td>
+                   </tr>
+               </table>
+               <p class="attributetxt">For each additional point in <strong>REF: Turn Priority is Higher</strong> at the beginning of combat encounters.</p>
+        </div>
+
+        <div style="width:32%; margin-left:1%; margin: 1%;" class="int">
+            <p class="attribute"><strong>INT</strong>(Intelligence)</p>
+               <table>
+                   <tr>
+                    <td style="background-color:slategrey">-1</td>
+                       <td>0</td>
+                       <td>+1</td>
+                       <td>+2</td>
+                       <td>+3</td>
+                       <td>+4</td>
+                   </tr>
+               </table>
+               <p class="attributetxt">For each additional point in <strong>INT: Receive 3 additional Skill Points</strong> to spend in character creation.</p>
+        </div>
+    </div> 
+
+    <div style="width:100%;">
+        <p class="header">Skills</p>
+    </div>
+
+    <div style="width:100%; display:flex;">
+        <div style="width:32%; margin:1%;">
+            <div class="strskills" style="width:100%;">
+                <p style="font-size:large; text-align:center;"><strong>STR</strong> Based Skills</p>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Endurance:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Athletics:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Grip:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Swim:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Throw:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+             </table>
+            </div>
+        </div>
+
+        <div style="width:32%; margin:1%">
+            <div class="refskills" style="width:100%;">
+                <p style="font-size:large; text-align:center;"><strong>REF</strong> Based Skills</p>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Perception:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Acrobatics:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Ride/Pilot:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Sleight of Hand:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Stealth:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+             </table>
+            </div>
+
+        </div>
+
+        <div style="width:32%; margin:1%;">
+            <div class="intskills" style="width:100%;">
+                <p style="font-size:large; text-align:center;"><strong>INT</strong> Based Skills</p>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>General Knowledge:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Deception:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Infiltration:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Persuasion:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div style="margin-top:5%;">
+                <p style="margin:0%; font-size:larger"><strong>Survival:</strong></p>
+                <table style="width:99%;">
+                    <tr>
+                        <td style="background-color:slategrey">-1</td>
+                        <td>0</td>
+                        <td>+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+             </table>
+            </div>
+        </div>
+    </div>
+
+    
+    <div style="width:100%;">
+        <p class="header">Vocations</p>
+    </div>
+
+    <div style="width:100%; margin:1%; display: flex;" class="vocation">
+        <div style="width:40%; margin: 0%;">
+            <div>
+                <form style="width:100%; margin-top:1%;">
+                    <label for="vocation" class="label1">Vocation:</label>
+                    <input type="text" name="vocation" id="vocation" class="input1">
+                </form>
+            </div>
+        
+            <div style="display:flex; width:100%;">
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="str" name="str" value="STR" class="check">
+                    <label for="str" style="font-size:small;">STR</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="ref" name="ref" value="REF" class="check">
+                    <label for="ref" style="font-size:small;">REF</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="int" name="int" value="INT" class="check">
+                    <label for="int" style="font-size:small;">INT</label><br>
+                </div>
+            </div>
+        
+            <div style="width:100%; margin-top:1%;">
+                <table>
+                    <tr>
+                        <td style="background-color:slategrey">+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div style="width:40%; margin-left: 18%;">
+            <div>
+                <form style="width:100%; margin-top:1%;">
+                    <label for="vocation" class="label1">Vocation:</label>
+                    <input type="text" name="vocation" id="vocation" class="input1">
+                </form>
+            </div>
+        
+            <div style="display:flex; width:100%;">
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="str" name="str" value="STR" class="check">
+                    <label for="str" style="font-size:small;">STR</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="ref" name="ref" value="REF" class="check">
+                    <label for="ref" style="font-size:small;">REF</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="int" name="int" value="INT" class="check">
+                    <label for="int" style="font-size:small;">INT</label><br>
+                </div>
+            </div>
+        
+            <div style="width:100%; margin-top:1%;">
+                <table>
+                    <tr>
+                        <td style="background-color:slategrey">+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div style="width:100%; margin:1%; display: flex;" class="vocation">
+        <div style="width:40%; margin: 0%;">
+            <div>
+                <form style="width:100%; margin-top:1%;">
+                    <label for="vocation" class="label1">Skill:</label>
+                    <input type="text" name="vocation" id="vocation" class="input1">
+                </form>
+            </div>
+        
+            <div style="display:flex; width:100%;">
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="str" name="str" value="STR" class="check">
+                    <label for="str" style="font-size:small;">STR</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="ref" name="ref" value="REF" class="check">
+                    <label for="ref" style="font-size:small;">REF</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="int" name="int" value="INT" class="check">
+                    <label for="int" style="font-size:small;">INT</label><br>
+                </div>
+            </div>
+        
+            <div style="width:100%; margin-top:1%;">
+                <table>
+                    <tr>
+                        <td style="background-color:slategrey">+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div style="width:40%; margin-left: 18%;">
+            <div>
+                <form style="width:100%; margin-top:1%;">
+                    <label for="vocation" class="label1">Skill:</label>
+                    <input type="text" name="vocation" id="vocation" class="input1">
+                </form>
+            </div>
+        
+            <div style="display:flex; width:100%;">
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="str" name="str" value="STR" class="check">
+                    <label for="str" style="font-size:small;">STR</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="ref" name="ref" value="REF" class="check">
+                    <label for="ref" style="font-size:small;">REF</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="int" name="int" value="INT" class="check">
+                    <label for="int" style="font-size:small;">INT</label><br>
+                </div>
+            </div>
+        
+            <div style="width:100%; margin-top:1%;">
+                <table>
+                    <tr>
+                        <td style="background-color:slategrey">+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div style="width:100%; margin:1%; display: flex;" class="vocation">
+        <div style="width:40%; margin: 0%;">
+            <div>
+                <form style="width:100%; margin-top:1%;">
+                    <label for="vocation" class="label1">Skill:</label>
+                    <input type="text" name="vocation" id="vocation" class="input1">
+                </form>
+            </div>
+        
+            <div style="display:flex; width:100%;">
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="str" name="str" value="STR" class="check">
+                    <label for="str" style="font-size:small;">STR</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="ref" name="ref" value="REF" class="check">
+                    <label for="ref" style="font-size:small;">REF</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="int" name="int" value="INT" class="check">
+                    <label for="int" style="font-size:small;">INT</label><br>
+                </div>
+            </div>
+        
+            <div style="width:100%; margin-top:1%;">
+                <table>
+                    <tr>
+                        <td style="background-color:slategrey">+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div style="width:40%; margin-left: 18%;">
+            <div>
+                <form style="width:100%; margin-top:1%;">
+                    <label for="vocation" class="label1">Skill:</label>
+                    <input type="text" name="vocation" id="vocation" class="input1">
+                </form>
+            </div>
+        
+            <div style="display:flex; width:100%;">
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="str" name="str" value="STR" class="check">
+                    <label for="str" style="font-size:small;">STR</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="ref" name="ref" value="REF" class="check">
+                    <label for="ref" style="font-size:small;">REF</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="int" name="int" value="INT" class="check">
+                    <label for="int" style="font-size:small;">INT</label><br>
+                </div>
+            </div>
+        
+            <div style="width:100%; margin-top:1%;">
+                <table>
+                    <tr>
+                        <td style="background-color:slategrey">+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div style="width:100%; margin:1%; display: flex;" class="vocation">
+        <div style="width:40%; margin: 0%;">
+            <div>
+                <form style="width:100%; margin-top:1%;">
+                    <label for="vocation" class="label1">Skill:</label>
+                    <input type="text" name="vocation" id="vocation" class="input1">
+                </form>
+            </div>
+        
+            <div style="display:flex; width:100%;">
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="str" name="str" value="STR" class="check">
+                    <label for="str" style="font-size:small;">STR</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="ref" name="ref" value="REF" class="check">
+                    <label for="ref" style="font-size:small;">REF</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="int" name="int" value="INT" class="check">
+                    <label for="int" style="font-size:small;">INT</label><br>
+                </div>
+            </div>
+        
+            <div style="width:100%; margin-top:1%;">
+                <table>
+                    <tr>
+                        <td style="background-color:slategrey">+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div style="width:40%; margin-left: 18%;">
+            <div>
+                <form style="width:100%; margin-top:1%;">
+                    <label for="vocation" class="label1">Skill:</label>
+                    <input type="text" name="vocation" id="vocation" class="input1">
+                </form>
+            </div>
+        
+            <div style="display:flex; width:100%;">
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="str" name="str" value="STR" class="check">
+                    <label for="str" style="font-size:small;">STR</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="ref" name="ref" value="REF" class="check">
+                    <label for="ref" style="font-size:small;">REF</label><br>
+                </div>
+                <div style="margin-left:15%; margin-right: 15%;">
+                    <input type="checkbox" id="int" name="int" value="INT" class="check">
+                    <label for="int" style="font-size:small;">INT</label><br>
+                </div>
+            </div>
+        
+            <div style="width:100%; margin-top:1%;">
+                <table>
+                    <tr>
+                        <td style="background-color:slategrey">+1</td>
+                        <td>+2</td>
+                        <td>+3</td>
+                        <td>+4</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div style="width:100%;">
+        <p class="header">State</p>
+    </div>
+
+    <div class="state" style="display: flex;">
+        <div class="injuries" style="width:49%; margin:1%;">
+            <h2 style="text-align:center; margin-bottom:0%;"><strong>Injuries:</strong></h2>
+            <table>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                </tr>
+            </table>
+            <p class="injuriestxt">When the level of injury exceeds your <strong>BASE ROLL (3) + ATTRIBUTE POINTS</strong>, <br> you fall <strong style="font-style:italic;">unconscious.</strong></p>
+
+            <div class="lingering" style="width:100%; margin:1%;">
+                <h2 style="text-align:center; margin-bottom:0%;"><strong>Lingering Injuries:</strong></h2>
+                <table>
+                    <tr>
+                        <td style="width:80%;">Injury:</td>
+                        <td>Penalty:</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:white;">&nbsp</td>
+                        <td style="background-color:white;">&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:white;">&nbsp</td>
+                        <td style="background-color:white;">&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:white;">&nbsp</td>
+                        <td style="background-color:white;">&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:white;">&nbsp</td>
+                        <td style="background-color:white;">&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:white;">&nbsp</td>
+                        <td style="background-color:white;">&nbsp</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div style="width:49%; margin:1%;">
+            <h2 style="text-align:center; margin-bottom:0%;"><strong>Destiny Points:</strong></h2>
+            <table>
+                <tr>
+                    <td style="background-color:white; border: 3px solid;">&nbsp</td>
+                    <td style="background-color:white; border: 3px solid;">&nbsp</td>
+                    <td style="background-color:white; border: 3px solid;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                </tr>
+            </table>
+
+            <h2 style="text-align:center; margin-bottom:0%;"><strong>Commerce Points:</strong></h2>
+            <table>
+                <tr>
+                    <td>0</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                    <td style="background-color:white;">&nbsp</td>
+                </tr>
+            </table>
+
+            <div class="equipment" style="width:100%; margin:1%;">
+                <h2 style="text-align:center; margin-bottom:0%;"><strong>Equipment:</strong></h2>
+                <table>
+                    <tr>
+                        <td style="background-color:white;">&nbsp</td>
+                        <td style="background-color:white;">&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:white;">&nbsp</td>
+                        <td style="background-color:white;">&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:white;">&nbsp</td>
+                        <td style="background-color:white;">&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:white;">&nbsp</td>
+                        <td style="background-color:white;">&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:white;">&nbsp</td>
+                        <td style="background-color:white;">&nbsp</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div style="width:100%;">
+        <h2 style="text-align:center; margin-bottom:0%;"><strong>Notes:</strong></h2>
+        <hr style="width:99%;text-align:left;margin:1%; border: 1px solid; margin-top:2%;">
+        <hr style="width:99%;text-align:left;margin:1%; border: 1px solid; margin-top:2%;">
+        <hr style="width:99%;text-align:left;margin:1%; border: 1px solid; margin-top:2%;">
+        <hr style="width:99%;text-align:left;margin:1%; border: 1px solid; margin-top:2%;">
+        <hr style="width:99%;text-align:left;margin:1%; border: 1px solid; margin-top:2%;">
+        <hr style="width:99%;text-align:left;margin:1%; border: 1px solid; margin-top:2%;">
+        <hr style="width:99%;text-align:left;margin:1%; border: 1px solid; margin-top:2%;">
+        <hr style="width:99%;text-align:left;margin:1%; border: 1px solid; margin-top:2%;">
+        <hr style="width:99%;text-align:left;margin:1%; border: 1px solid; margin-top:2%;">
+        <hr style="width:99%;text-align:left;margin:1%; border: 1px solid; margin-top:2%;">
+    </div>
+
+    <button class="download">Save as PDF</button>
+
+</body>
+</html>
